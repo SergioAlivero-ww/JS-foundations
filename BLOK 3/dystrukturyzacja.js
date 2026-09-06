@@ -29,3 +29,4 @@ const kolory = ["czerwony", "zielony", "niebieski"];
 const [glowny, dodatkowy] = kolory;
 console.log(glowny);
 console.log(dodatkowy);
+
