@@ -97,3 +97,14 @@ const koszyk = {
 };
 koszyk.dodaj("kawa");
 koszyk.dodaj("Kubek");
+
+const test = {
+    nazwa: "Test",
+    metoda1: () => { console.log(this.nazwa); },
+    metoda2: function() {
+        const wewnetrzna = () => { console.log(this.nazwa); };
+        wewnetrzna();
+    }
+};
+test.metoda1();
+test.metoda2();
