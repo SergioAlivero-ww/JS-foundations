@@ -30,3 +30,29 @@ const [glowny, dodatkowy] = kolory;
 console.log(glowny);
 console.log(dodatkowy);
 
+
+const user = ["serhii", "Gdańsk"];
+
+const [imie, ,  wiek = 18] = user;
+console.log(imie);
+console.log(wiek);
+
+
+const config = { szerokość: 800 }
+const { szerokość: w, wysokość: h = 600 } = config;
+console.log("wysokośc to " + w + ", szerokość to " + h);
+
+const obj = { a: 1 };
+/* console.log(b); */ /* cannot access variable "b" before initialization */
+const { b = 5 } = obj;
+console.log(b); /* 5 */
+
+const punkty = [10, undefined, 30];
+const [x = 1, y = 2, z = 3, q = 4] = punkty;
+console.log(y);
+/* undefined zostanie. 
+po za tym:
+x = 10
+y = 2
+z = 30
+q = 4 */

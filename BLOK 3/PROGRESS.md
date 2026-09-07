@@ -94,3 +94,50 @@ Wywala tylko za rzeczy nieznalezione w ogóle albo za wcześnie (TDZ).
 1. Rozgrzewka: dokończyć zadanie tablicowe (pomijanie + domyślna)
 2. Krótka powtórka destrukturyzacji z pamięci
 3. Jeśli energia: spread/rest — formalne nazwanie (już umiem z Bloku 1/2)
+
+## ===== 07.09 — destrukturyzacja: powtórka + rename z domyślną =====
+
+### Powtórka z pamięci (przetrwała noc, bez notatek)
+- 3 stany zmiennej rozdzielone własnymi słowami (can't find variable /
+  before initialization TDZ / undefined) — zrozumienie, nie formułka
+- rename (lewa=pole, prawa=zmienna, user_name jako zmienna nie istnieje)
+- obiekt po nazwie vs tablica po pozycji
+
+### Dokończone wczorajsze zadanie tablicowe
+[imie, , wiek = 18] z pamięci, bezbłędnie. Pomijanie przecinkiem +
+domyślna na pominiętej pozycji.
+
+### NOWE / doprecyzowane dziś
+- RENAME + DOMYŚLNA NARAZ (najtrudniejsza składnia dnia):
+  const { szerokosc: w, wysokosc: h = 600 } = config
+  kolejność: POLE : nowaNazwa = domyślna
+  (najpierw pomyliłem z const {w=800,h=600} — to ignoruje obiekt i wpisuje
+  domyślne ręcznie, nie czyta z obiektu. Test: zmień wartość w obiekcie,
+  jak wynik się nie zmienia = źle)
+- DOPRECYZOWANIE reguły domyślnej: wskakuje na KAŻDY undefined — czy to
+  brak pozycji, CZY jawnie wpisany undefined w tablicy.
+  [10, undefined, 30] z [x=1, y=2, z=3, q=4] → y=2 (nie undefined!),
+  bo undefined na pozycji = sygnał "użyj domyślnej".
+  Dalej NIE reaguje na 0, "", false (prawdziwe wartości).
+
+### Szlif
+- notatka z BŁĘDNĄ predykcją jest gorsza niż brak notatki — poprawiać
+  komentarze w pliku po sprawdzeniu w konsoli
+- pola z API nie mają polskich znaków — nawyk: szerokosc bez ogonków
+
+### Status Bloku 3
+- [x] destrukturyzacja — obiekty i tablice KOMPLET (rename, domyślne,
+      pomijanie, rename+domyślna naraz, undefined vs 0/""/false)
+- [ ] destrukturyzacja ZAGNIEŻDŻONA — świadomie odłożona (obiekt w obiekcie,
+      przyjdzie przy API — wrócić)
+- [ ] spread / rest (formalizacja)
+- [ ] template literals (formalizacja)
+- [ ] ES modules
+
+### Do powtórki
+- destrukturyzacja — ~10.09, potem ~14.09 (z pamięci)
+
+### Plan na następną sesję
+1. Rozgrzewka: destrukturyzacja z pamięci
+2. spread / rest — formalne nazwanie (już z Bloku 1/2)
+3. lub template literals
