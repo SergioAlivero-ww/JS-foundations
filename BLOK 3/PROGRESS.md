@@ -141,3 +141,74 @@ domyślna na pominiętej pozycji.
 1. Rozgrzewka: destrukturyzacja z pamięci
 2. spread / rest — formalne nazwanie (już z Bloku 1/2)
 3. lub template literals
+
+## ===== 11.09 — reaktywacja destrukturyzacji po 4-dniowej przerwie =====
+
+### Kontekst
+Niechciana przerwa 07→11.09 (praca, nocki). Powtórka destrukturyzacji
+i tak wypadała ~10.09, więc realnie 1 dzień poślizgu, nie tydzień ciszy.
+
+### Co przetrwało / co odzyskane
+- destrukturyzacja obiektów i tablic: 5 zadań od zera, SAMODZIELNIE,
+  bezbłędnie (podstawy, tablica po pozycji, domyślna, rename,
+  rename+domyślna naraz price:koszt=0 — to był dziś zator, odzyskany)
+- reguła domyślnej trzyma: wskakuje tylko na undefined, nie na 0/""/false
+- reduce z palca: suma przez (kula, x) => kula + x, wartość startowa 0 — czysto
+
+### Zdiagnozowany PRAWDZIWY problem (ważne)
+Nie brak zrozumienia — ucieka SKŁADNIA/zapis po przerwie.
+Rozumienie mechanizmów całe (potrafię wypełnić luki w gotowym szkielecie
+closure bez problemu, wytłumaczyć "return dodaj = przepis"), ale
+OD ZERA, z pustego pliku, nie potrafię napisać closure. To nie dziura
+w wiedzy — to zardzewiały nawyk pisania. Ten sam wzorzec dziś 3x:
+destrukturyzacja, rename, closure — wszystko rozumiem, zapis wyparował.
+
+### Do poprawy (drobne, złapane dziś)
+- this: oderwana metoda f = user.przywitaj; f() → this=undefined
+  (nie powtórzyłem że dwa wywołania dają różne wyniki) — do odświeżenia
+- filter: callback MUSI złapać element w argument; .cena na ELEMENCIE,
+  nie na całej tablicy (produkty.cena = błąd) — do odświeżenia
+
+### PLAN NA JUTRO (12.09) — świeża głowa, "lecimy mocno"
+Priorytet: CLOSURE i REDUCE od zera, z pustego pliku, wielokrotnie.
+Cel nie "zrozumieć" (już rozumiem) tylko "ręka sama pisze" — mięsień
+składni przez powtórzenie, nie przez czytanie.
+1. reduce od zera: kilka wariantów (suma, licznik warunkowy, obiekt)
+2. closure od zera: licznik, licznik z argumentem, fabryka z metodami
+3. dopiero potem ewentualnie dalej Blok 3
+
+### Status Bloku 3
+- [x] destrukturyzacja (obiekty+tablice, komplet)
+- [ ] destrukturyzacja zagnieżdżona (odłożona, przy API)
+- [ ] spread/rest, template literals, ES modules
+
+## ===== 12.09 — PRZEŁOM: nawiasy/callback + closure i reduce od zera =====
+
+### Rano (świeża głowa)
+- FUNDAMENT (wczorajsza dziura): co siedzi w nawiasach. parametr = pusta
+  szufladka przy definicji, argument = to co wkładasz przy wywołaniu.
+- CALLBACK = funkcja włożona jako argument. forEach/map/filter/reduce to
+  callbacki — robiłem je od miesięcy nie wiedząc że to one.
+- CLOSURE od zera (wczoraj "nie potrafię"): fabryka licznika, 2 warianty,
+  z palca. a i b = osobne wywołania = niezależne plecaki (1,2,1 z głowy).
+  a vs a() = przepis vs wykonanie.
+- REDUCE 4 warianty od zera: suma, licznik warunkowy (if→kula+1/kula),
+  obiekt-grupowanie (kula[x.kat]=(kula[x.kat]||0)+x.kwota), maksimum.
+
+### Noc (recepcja, utrwalenie)
+- nazwy się rozmyły (parametr/argument/callback — do odświeżenia na świeżo),
+  ale palce i mechanizm trzymają: 2 reduce z głowy bez podglądania.
+- rozbity zator kula[x]: x = nazwa klucza (półka), kula[x] = wartość na niej.
+  nawias [] bo x się zmienia. adres ≠ zawartość.
+
+### Wniosek
+Wczorajsze "nic nie rozumiem" = brak fundamentu (nawiasy), nie brak
+zdolności. Metoda na zator: rozbić na najmniejsze klocki, każdy osobno.
+
+### Do powtórki (rosnące odstępy)
+- nazwy parametr/argument/callback — na świeżo (uciekają po nocy)
+- closure + reduce (4 warianty) — ~14.09, potem ~18.09
+
+### Status Bloku 3
+- [x] destrukturyzacja  [ ] zagnieżdżona (odłożona)
+- [ ] spread/rest, template literals, ES modules

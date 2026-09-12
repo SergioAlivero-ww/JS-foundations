@@ -56,3 +56,26 @@ x = 10
 y = 2
 z = 30
 q = 4 */
+
+const auto1 = { marka1: "Nisan", rok1: "1998"};
+const {marka1, rok1} = auto1; 
+console.log(marka1);
+console.log(rok1);
+
+const dane = ["Ania", "Kraków", "PL"];
+const [imie1, , kraj] = dane;
+console.log(imie1);
+console.log(kraj);
+
+const produkt1 = { nazwa2: "Kawa"};
+const {nazwa2, cena3 = 10} = produkt1;
+console.log(nazwa2);
+console.log(cena3);
+
+const obj2 = {login: "serhii999"};
+const {login: user1} = obj2;
+console.log(user1);
+
+const item = { price: 50 };
+const {price: koszt = 0} = item;
+console.log(koszt);
