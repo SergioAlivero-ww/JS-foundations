@@ -302,3 +302,14 @@ const najdluzsze = slowa.reduce((kula, x) => {
 }, "")
 console.log(najdluzsze);
 
+const t = [5, 10, 15];
+const bb = t.reduce((kula, x) => {
+  return kula = kula + x;
+}, 0)
+console.log(bb);
+
+const ggg = [5, 188, 15].reduce((kula, x) => {
+  return kula = kula + x;
+})
+
+console.log(ggg)

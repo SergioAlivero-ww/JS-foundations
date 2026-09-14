@@ -212,3 +212,65 @@ zdolności. Metoda na zator: rozbić na najmniejsze klocki, każdy osobno.
 ### Status Bloku 3
 - [x] destrukturyzacja  [ ] zagnieżdżona (odłożona)
 - [ ] spread/rest, template literals, ES modules
+
+## ===== 13.09 — closure i reduce od zera, transfer na niestandardowe =====
+
+### Closure (5 wariantów, od zera)
+- licznik, licznik ze startem, fabryka z krokiem
+- konto z wplac/wyplac/stan (3 metody, wspólny plecak)
+- konto z walidacją (if, return "brak srodkow" zamiast akcji bez returnu)
+- lista w plecaku (spread), fabryka mnożników, flaga jednorazowa
+
+### Reduce (6 wariantów, od zera)
+- suma warunkowa, liczenie wystąpień, grupowanie z sumą pól (x.produkt/x.ilosc)
+- NIESTANDARDOWE bez wzoru: najdłuższe słowo (kula=rekordzista tekstowy,
+  porównanie przez .length, start "") — transfer mechanizmu, nie odtworzenie
+
+### Przełom w rozumieniu
+- rozbrojone (kula[x] || 0) + coś: prawa strona = "ile już nazbierałem
+  pod kluczem", nie nazwa. Technika: podstawiać konkretne liczby od środka.
+- nazwy odświeżone na świeżo: parametr/argument/callback (uciekły po nocy)
+- callback = funkcja WKŁADANA (argument), closure = funkcja ZWRACANA (plecak)
+
+### Samoświadomość
+"Palce szybciej niż głowa" — trafna diagnoza, w ciągu dnia głowa dogoniła.
+Zdał samodzielnie test niestandardowy, który sam sobie postawił jako "posypie się".
+
+### Plan 14.09
+spread/rest od podstaw → głębiej → spread/rest w reduce i closure →
+połączenia tematów.
+
+### Status Bloku 3
+- [x] destrukturyzacja  [ ] zagnieżdżona (odłożona)
+- [ ] spread/rest ← jutro  [ ] template literals  [ ] ES modules
+
+## ===== 14.09 — spread i rest od zera + połączenia z reduce/closure =====
+
+### Start: zero energii, weszło przez łagodną rozgrzewkę (reduce sumy)
+
+### SPREAD (... rozsypuje, prawa strona)
+- tablice [...stara, nowy], obiekty {...stary, pole}
+- niemutowanie (oryginał nietknięty), nadpisywanie (późniejsze wygrywa)
+
+### REST (... zbiera, lewa strona)
+- parametr funkcji f(...args) → argumenty w tablicę
+- destrukturyzacja [pierwszy, ...reszta] → reszta w TABLICĘ
+- destrukturyzacja {imie, ...dane} → reszta w OBIEKT
+- rozróżnienie: ... po prawej rozsypuje (spread), po lewej zbiera (rest)
+
+### Połączenia (od zera, samodzielnie)
+- closure + spread: koszyk niemutujący [...koszyk, prod]
+- reduce + spread: spłaszczanie [...kula, ...x], start []
+
+### DO DOBICIA (sam wskazał — priorytet powtórek)
+Zapis kula[x.klucz] = [...(kula[x.klucz] || []), x.pole] — grupowanie
+do tablic per kategoria. Zrobione, ale ściągnięte. Potrzeba więcej
+przykładów z kula[x]... aż usiądzie w głowie, nie tylko w palcach.
+
+### Do powtórki (rosnące odstępy)
+- closure + reduce — ~16.09 (z pamięci)
+- spread/rest + zapisy kula[x] — ~16.09, więcej przykładów
+
+### Status Bloku 3
+- [x] destrukturyzacja, spread/rest  [ ] zagnieżdżona (odłożona)
+- [ ] template literals  [ ] ES modules
