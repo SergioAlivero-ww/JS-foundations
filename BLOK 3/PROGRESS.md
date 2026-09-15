@@ -274,3 +274,43 @@ przykładów z kula[x]... aż usiądzie w głowie, nie tylko w palcach.
 ### Status Bloku 3
 - [x] destrukturyzacja, spread/rest  [ ] zagnieżdżona (odłożona)
 - [ ] template literals  [ ] ES modules
+
+
+## ===== 15.09 — spread/rest + złożone systemy (closure+reduce+filter+map) =====
+
+### Rano: spread/rest od zera (patrz osobny wpis 14.09 jeśli scalony)
+
+### Główna część: 4 systemy łączące mechanizmy, każdy trudniejszy
+1. MAGAZYN (closure+spread+reduce): dodaj niemutująco, lacznaIlosc (suma pola)
+2. LISTA ZADAŃ (closure+spread+filter+find): dodaj/usun(filter !==)/znajdz(find ===)
+3. SKLEP (closure+spread+filter+reduce×2): wartoscMagazynu, zKategorii(filter ===),
+   najdrozszy(reduce-rekordzista zwraca CAŁY obiekt, bez wart. startowej)
+4. GRA (closure+spread+MAP+reduce): dodajPunkty przez map + {...g, punkty: g.punkty+ile}
+   = niemutująca AKTUALIZACJA elementu w tablicy (wzorzec Reacta!)
+
+### Dwie lekcje systemowe (wracały, do zapamiętania)
+- CZYTASZ → return wynik. ZMIENIASZ STAN → stan = ... . Metody liczące
+  NIE nadpisują prywatnego stanu (błąd w sklepie: produkty = produkty.reduce
+  nadpisał tablicę liczbą → wszystko dalej się sypało)
+- BRAK WART. STARTOWEJ → undefined → undefined+liczba = NaN
+  (gra: dodaj przyjmował punkty jako argument którego nikt nie podał;
+  lek: punkty:0 na sztywno w środku, nie jako parametr)
+
+### Nawracające szlify
+- return w callbacku filter/reduce/map OBOWIĄZKOWY (znów zgubiony w filter)
+- reduce-rekordzista: porównuj przez pole (kula.cena < x.cena), zwracaj x (obiekt)
+
+### Ocena
+Świeża głowa wykorzystana zgodnie z planem "obciążyć głowę". Systemy nie
+zawsze za pierwszym strzałem, ale KAŻDĄ poprawkę samodzielnie po wskazaniu
+kierunku. Najtrudniejszy wzorzec dnia (map+spread aktualizacja) napisany sam.
+
+### Do powtórki (rosnące odstępy)
+- złożone systemy (closure+reduce+filter+map) — ~18.09
+- zapis kula[x.klucz] = [...(kula[x.klucz] || []), x.pole] — wciąż do dobicia
+- map + {...g, pole} niemutująca aktualizacja — ~17.09
+
+### Status Bloku 3
+- [x] destrukturyzacja, spread/rest  [ ] zagnieżdżona (odłożona)
+- [ ] template literals (formalizacja)  [ ] ES modules
+Zostało w Bloku 3 niewiele — template literals (już umiem) + moduły.
