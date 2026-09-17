@@ -314,3 +314,36 @@ kierunku. Najtrudniejszy wzorzec dnia (map+spread aktualizacja) napisany sam.
 - [x] destrukturyzacja, spread/rest  [ ] zagnieżdżona (odłożona)
 - [ ] template literals (formalizacja)  [ ] ES modules
 Zostało w Bloku 3 niewiele — template literals (już umiem) + moduły.
+
+
+## ===== 17.09 (przedpołudnie) — obiektowe reduce: PRZEŁOM w rozumieniu =====
+
+### Rozbrojony największy węzeł: kula[x.klucz] (adres vs zawartość)
+Pół godziny walki, ale KLIKNĘŁO na poziomie zrozumienia, nie kucia:
+- x.produkt = NAZWA/klucz ("chleb") — napis na szufladzie
+- kula[x.produkt] = WARTOŚĆ pod tą nazwą (liczba/tablica) — co W szufladzie
+- adres ≠ zawartość. To była cała blokada.
+- kropka i nawias OBA dają wartość; różnica: kropka = nazwa wpisana wprost,
+  nawias = nazwa ze zmiennej (dlatego w reduce zawsze [], bo klucz się zmienia)
+
+### Cała rodzina obiektowego reduce (3 warianty, z głowy)
+- liczenie:    kula[x]       = (kula[x] || 0) + 1
+- sumowanie:   kula[x.klucz] = (kula[x.klucz] || 0) + x.pole
+- grupowanie:  kula[x.klucz] = [...(kula[x.klucz] || []), x.pole]
+Schemat wspólny: "weź co już jest pod kluczem (albo start), dołóż, zapisz".
+Grupowanie (wcześniej ŚCIĄGANE) — teraz napisane samodzielnie.
+
+### System łączący (closure + spread + reduce grupujący)
+Biblioteka: dodaj/pokaz/wgGatunku. Dwa błędy z listy słabych punktów,
+poprawione SAM po wskazaniu:
+- const w metodzie (tworzy lokalną zamiast pisać do plecaka fabryki)
+- || 0 zamiast || [] przy grupowaniu do tablic ([...0] się wywala)
+
+### DO POWTÓRKI JUTRO (sam poprosił, przed nowym materiałem)
+- obiektowe reduce, struktura podobna (liczenie/suma/grupowanie)
+- słabe punkty: const-w-metodzie, || [] vs || 0, return w callbacku
+
+### Status Bloku 3
+- [x] destrukturyzacja, spread/rest  [ ] zagnieżdżona (odłożona)
+- [ ] template literals  [ ] ES modules
+Kontekst: wczoraj pierwsza automatyzacja w n8n zrobiona.

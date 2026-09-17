@@ -313,3 +313,104 @@ const ggg = [5, 188, 15].reduce((kula, x) => {
 })
 
 console.log(ggg)
+
+
+
+const liczby2 = [10, 20, 30];
+const suma2 = liczby2.reduce((kula, x) => {
+  return kula + x;
+}, 0)
+console.log(suma2);
+
+const temperatury = [18, 25, 12, 30, 8, 22];
+const cieple = temperatury.reduce((kula, x) => {
+  if(x >= 25){
+    return kula + 1;
+  }else{
+    return kula;
+  }
+}, 0)
+
+console.log(cieple);
+
+const kolory = ["czerwony", "niebieski", "czerwony", "zielony", "niebieski", "czerwony"];
+const wystapienia = kolory.reduce((kula, x) => {  
+  kula[x] = (kula[x] || 0) + 1;
+  return kula;
+
+}, {})
+
+console.log(wystapienia);
+
+const zakupy = [
+  { produkt: "chleb", cena: 5 },
+  { produkt: "mleko", cena: 3 },
+  { produkt: "chleb", cena: 5 },
+  { produkt: "masło", cena: 8 }
+];
+
+const zakupy2 = zakupy.reduce((kula, x) => {
+kula[x.produkt] = (kula[x.produkt] || 0) + x.cena;
+return kula;
+}, {});
+
+console.log(zakupy2);
+
+const zamowienia = ["pizza", "burger", "pizza", "sushi", "pizza", "burger"];
+const wystapienia2 = zamowienia.reduce((kula, x) => {
+  kula[x] = (kula[x] || 0) + 1;
+  return kula;
+}, {})
+console.log(wystapienia2);
+
+const pracownicy = [
+  { dzial: "IT", pensja: 8000 },
+  { dzial: "HR", pensja: 5000 },
+  { dzial: "IT", pensja: 9000 },
+  { dzial: "HR", pensja: 5500 }
+];
+
+const pensjaPerDzial = pracownicy.reduce((kula, x) => {
+  kula[x.dzial] = (kula[x.dzial] || 0) + x.pensja;
+  return kula;
+}, {});
+console.log(pensjaPerDzial);
+
+const uczniowie = [
+  { klasa: "A", imie: "Ola" },
+  { klasa: "B", imie: "Ala" },
+  { klasa: "A", imie: "Ela" }
+];
+
+const grupa = uczniowie.reduce((kula, x) => {
+  kula[x.klasa] = [...(kula[x.klasa] || []), x.imie];
+  return kula;
+}, {})
+console.log(grupa);
+
+function stworzBiblioteke(){
+  let ksiazki = [];
+  return {
+    dodaj: function(tytul, gatunek){
+      const ksiazka = {tytul, gatunek};
+      ksiazki = [...ksiazki, ksiazka];
+      return ksiazki;
+    },
+    pokaz: function(){
+      return ksiazki;
+    },
+    wgGatunku: function(){
+      return ksiazki.reduce((kula,x) => {
+        kula[x.gatunek] = [...(kula[x.gatunek] || []), x.tytul];
+        return kula;
+      }, {});
+    }
+  }
+}
+
+const bib = stworzBiblioteke();
+bib.dodaj("Wiedźmin", "fantasy");
+bib.dodaj("Zbrodnia i kara", "kryminał");
+bib.dodaj("Hobbit", "fantasy");
+console.log(bib.pokaz());       // ?
+console.log(bib.wgGatunku());   // ?
