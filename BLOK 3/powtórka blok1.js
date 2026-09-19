@@ -414,3 +414,4 @@ bib.dodaj("Zbrodnia i kara", "kryminał");
 bib.dodaj("Hobbit", "fantasy");
 console.log(bib.pokaz());       // ?
 console.log(bib.wgGatunku());   // ?
+
