@@ -347,3 +347,62 @@ poprawione SAM po wskazaniu:
 - [x] destrukturyzacja, spread/rest  [ ] zagnieżdżona (odłożona)
 - [ ] template literals  [ ] ES modules
 Kontekst: wczoraj pierwsza automatyzacja w n8n zrobiona.
+
+## ===== 19.09 — ES modules + powtórka słowna całości (Blok 3 ZAMKNIĘTY) =====
+
+### Template literals (18.09) + ES modules (19.09) — Blok 3 domknięty
+- template literals: backticki, ${wyrażenie} (może być działanie/funkcja),
+  wielolinijkowość. Realny sens: budowa HTML w JS (innerHTML czytelnie)
+- ES modules: named export/import — export udostępnia, import { nazwa }
+  from "./plik.js" bierze. Klamry, nazwa pasuje, .js obowiązkowe,
+  type="module" w HTML, Live Server (nie file://)
+- default: świadomie odłożony na React (named wystarcza, default mylił
+  "dowolna nazwa/jeden na plik" — wróci naturalnie przy komponentach)
+- PO CO moduły (własnymi słowami): porządek, wielokrotne użycie (piszesz
+  raz importujesz gdzie trzeba), własny zasięg pliku (koniec kolizji const),
+  współpraca — sam dodał
+
+### Powtórka słowna CAŁOŚCI (Blok 1-3, z pamięci) — wszystko trzyma
+Dziewięć tematów, wszystkie własnymi słowami = zrozumienie nie formułki.
+Najtrudniejsze węzły z pamięci bez zająknięcia:
+- kula[x.klucz] = WARTOŚĆ pod kluczem (tydzień temu 30 min walki — trzyma!)
+- 3 stany zmiennej (undefined/is not defined/TDZ)
+- domyślna tylko na undefined (nie na ""/0/false)
+
+### Szlify do dopilnowania (drobne, nie luki)
+- await zamraża TYLKO swoją funkcję, nie cały program (sedno async)
+- closure: "nosi/pamięta" zmienne rodzica, NIE "dziedziczy"
+- reduce działa na tablicy; bez wart. startowej pada na pustej
+
+### STATUS: BLOK 3 ZAMKNIĘTY
+[x] destrukturyzacja, spread/rest, template literals, ES modules
+[ ] destrukturyzacja zagnieżdżona — świadomie na Blok 4 (przy API)
+
+### PLAN JUTRO (20.09)
+Powtórka CAŁOŚCI Bloku 1-3 — już PISZĄC KOD (nie słownie), parę godzin.
+Sprawdzić czy materiał trzyma w palcach, nie tylko w głowie.
+Potem: Blok 4 (fetch, API, HTTP) — tam wraca async/await + destrukturyzacja.
+
+## ===== 22.09 (rano) — powtórka: system playlista, reduce vs map =====
+
+### System 5-mechanizmowy (closure+spread+reduce+filter+map)
+Playlista: dodaj / lacznyCzas(reduce) / dluzsze(sekundy)(filter) /
+tytuly(map). Przeszedł po 2 poprawkach, obie SAM po wskazaniu.
+
+### Główna lekcja dnia: REDUCE vs MAP (realna dziura, zamknięta)
+Mylił map z reduce — próbował budować tablicę tytułów RĘCZNIE w map
+(t = [...p, p.tytul]), jak w reduce. Sedno:
+- reduce = budujesz jeden wynik ręcznie, niesiesz kulę (return kula)
+- map = zwracasz co ma zastąpić element; map SAM składa nową tablicę
+  (playlista.map(p => p.tytul) — nic ręcznie, map zbiera za ciebie)
+
+### Drugi szlif (wraca): metoda ma brać PARAMETR, nie sztywną liczbę
+dluzsze() miało 250 wbite na stałe zamiast dluzsze(sekundy). Ten sam
+błąd co powyzej(kwota) wczoraj. Metoda działa na tym co podasz.
+
+### Nawyk return — dziś pilnowany świadomie, lacznyCzas od razu z return
+Poprawa względem wczoraj (celował w ten nawyk i trafił)
+
+### Status: Blok 1-3 potwierdzone (słownie 19.09, w kodzie 20+22.09)
+Gotowość do Bloku 4 (fetch, API, HTTP) — tam wraca async/await + destrukturyzacja.
+Kontekst: równolegle n8n (automatyzacja).
