@@ -118,3 +118,33 @@ console.log(pierwszy.pokaz());
 console.log(pierwszy.lacznyCzas());
 console.log(pierwszy.dluzsze(250));
 console.log(pierwszy.tytuly());
+
+
+const produkt = { nazwa: "laptop", cena: 3000 };
+const {nazwa, cena: koszt, rabat = 0} = produkt;
+console.log(nazwa);
+console.log(koszt);
+console.log(rabat);
+
+const wyniki = [95, 80, 70];
+const [zloto, , braz, poza = "brak"] = wyniki;
+console.log(zloto);
+console.log(braz);
+console.log(poza);
+
+const liczby = [10, 20, 30, 40, 50];
+const [glowna, ...pozostale] = liczby;
+console.log(glowna);
+console.log(pozostale);
+
+const user = { imie: "Serhii", wiek: 30 };
+function opisz({ imie, wiek }) {
+  console.log(`${imie} ma ${wiek} lat`);
+}
+
+opisz(user);
+
+const user1 = { imie: "Gosia", wiek: 25};
+opisz(user1);
+const user2 = { imie: "Jakub" };
+opisz(user2);

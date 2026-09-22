@@ -406,3 +406,31 @@ Poprawa względem wczoraj (celował w ten nawyk i trafił)
 ### Status: Blok 1-3 potwierdzone (słownie 19.09, w kodzie 20+22.09)
 Gotowość do Bloku 4 (fetch, API, HTTP) — tam wraca async/await + destrukturyzacja.
 Kontekst: równolegle n8n (automatyzacja).
+
+## ===== 22.09 — destrukturyzacja powtórka + plan drogi do Reacta =====
+
+### Powtórka destrukturyzacji (po tygodniu przerwy — trzyma)
+Z palca bezbłędnie: obiekt (rename + domyślna naraz), tablica
+(pominięcie + domyślna), rest [glowna, ...pozostale].
+NOWE dziś:
+- destrukturyzacja w parametrze funkcji: function opisz({imie, wiek})
+  zamiast (user) + const {...} w środku. Po co: mniej pisania obiekt.
+  przy każdym polu; standard w React (props). Zrozumiane "po co".
+- zagnieżdżona {imie, adres:{miasto}} — zaczęta, NIEDOKOŃCZONA
+  (obiekt w obiekcie, wraca przy API). Do dobicia.
+
+### PLAN DROGI DO REACTA (ustalony)
+1. Blok 4 — fetch/API małymi krokami: fetch+.then → async/await →
+   Response/.json() → destrukturyzacja odpowiedzi → try/catch →
+   HTTP (status, request/response, JSON) → render na stronę.
+   API: JSONPlaceholder na start, potem prawdziwe (PokeAPI/pogoda).
+2. Projekt(y) spinające fundamenty + API (przeglądarka API / pogoda /
+   wyszukiwarka z filtrowaniem)
+3. Portfolio (Astra/Journalist/moneyMoves + nowy) → LinkedIn
+4. React (wejdzie łatwo — komponenty=funkcje z destr. propsów,
+   stan=niemutowanie, .map listy, export default — już to mam)
+Zasada: codziennie coś, powtórki fundamentów wplecione co ~tydzień
+(żeby nie zardzewiały w trakcie Bloku 4 i Reacta).
+
+### PLAN JUTRO (23.09): pierwszy fetch, świeża głowa
+Kontekst: dziś odpoczynek od kodu, przyciskanie n8n.
